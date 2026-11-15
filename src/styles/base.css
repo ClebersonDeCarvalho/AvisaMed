@@ -1,0 +1,78 @@
+[hidden] {
+  display: none !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-heading {
+  font-family:
+    'Plus Jakarta Sans',
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    Arial,
+    sans-serif;
+  letter-spacing: -0.015em;
+}
+
+html {
+  scroll-padding-top: calc(var(--header-height, 96px) + 1rem);
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass-header {
+    background-color: rgb(var(--c-header)) !important;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .glass-header {
+    background-color: rgb(var(--c-header)) !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+}
+
+.toast {
+  opacity: 0;
+  transform: translateY(0.75rem);
+  transition: opacity 200ms ease, transform 200ms ease;
+}
+
+.toast.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+input[aria-invalid='true'],
+select[aria-invalid='true'] {
+  border-style: dashed;
+  border-width: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (forced-colors: active) {
+  :focus-visible {
+    outline: 4px solid CanvasText !important;
+    outline-offset: 4px !important;
+  }
+
+  .glass-header {
+    border: 2px solid CanvasText;
+  }
+}

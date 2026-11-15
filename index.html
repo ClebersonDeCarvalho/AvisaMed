@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pt-BR" class="theme-light">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="AvisaMed: lembrete de medicamentos acessível (WCAG 2.1), com 4 temas de contraste, navegação por teclado, Web Speech API e suporte a leitores de tela." />
+  <meta name="theme-color" content="#E3F2FD" />
+  <title>AvisaMed — Lembrete de Medicamentos Acessível</title>
+  <link rel="icon" type="image/png" href="./src/assets/favicon.png" />
+  <link rel="apple-touch-icon" href="./src/assets/logo.png" />
+
+  <script>
+    (function () {
+      var map = {
+        light: ['theme-light'],
+        'hc-light': ['theme-hc-light', 'hc'],
+        dark: ['theme-dark', 'dark'],
+        'hc-dark': ['theme-hc-dark', 'hc', 'dark'],
+      };
+      var id = null;
+      try { id = localStorage.getItem('avisamed:theme'); } catch (e) { }
+      if (!map[id]) {
+        var dark = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches;
+        var more = window.matchMedia && matchMedia('(prefers-contrast: more)').matches;
+        id = more ? (dark ? 'hc-dark' : 'hc-light') : dark ? 'dark' : 'light';
+      }
+      var root = document.documentElement;
+      root.className = map[id].join(' ');
+      root.dataset.theme = id;
+      root.style.colorScheme = id.indexOf('dark') > -1 ? 'dark' : 'light';
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="./src/scripts/config/tailwind.config.js"></script>
+
+  <link rel="stylesheet" href="./src/styles/themes.css" />
+  <link rel="stylesheet" href="./src/styles/base.css" />
+
+  <script type="module" src="./src/scripts/main.js"></script>
+</head>
+
+<body class="app-bg flex min-h-screen flex-col bg-surface font-sans text-lg text-ink antialiased">
+  <a href="#conteudo-principal"
+    class="sr-only z-[60] rounded-lg bg-primary px-5 py-3 font-bold text-on-primary focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring focus-visible:ring-offset-4 focus-visible:ring-offset-surface">
+    Pular para o conteúdo principal
+  </a>
+
+  <div id="header-root" class="sticky top-4 z-40 mx-auto w-full max-w-6xl px-4 pt-4 sm:px-6 lg:px-8"></div>
+
+  <main id="conteudo-principal" tabindex="-1"
+    class="mx-auto w-full max-w-6xl flex-1 px-4 pb-16 pt-10 outline-none sm:px-6 lg:px-8">
+    <section id="view-home" aria-labelledby="home-title"></section>
+    <section id="view-form" aria-labelledby="form-title" hidden class="hidden" aria-hidden="true"></section>
+    <section id="view-list" aria-labelledby="list-title" hidden class="hidden" aria-hidden="true"></section>
+  </main>
+
+  <div id="modal-root"></div>
+  <div id="toast-root"></div>
+
+  <noscript>
+    <p class="m-4 rounded-lg border-4 border-ink bg-card p-4 text-ink">
+      O AvisaMed precisa de JavaScript habilitado para salvar e listar seus medicamentos.
+    </p>
+  </noscript>
+</body>
+
+</html>

@@ -1,0 +1,12 @@
+{
+  "name": "avisamed",
+  "version": "1.0.0",
+  "description": "Lembrete de medicamentos acessível (WCAG 2.1) com HTML5, Tailwind CSS/HyperUI e Vanilla JS (ES6 Modules).",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "npx --yes serve@14 . --listen 5500",
+    "start": "npm run dev"
+  },
+  "license": "MIT"
+}
