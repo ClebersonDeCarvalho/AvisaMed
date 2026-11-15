@@ -71,7 +71,7 @@ AvisaMed/
 
 ## Como rodar localmente
 
-> ⚠️ O projeto usa **ES6 Modules**, que **não funcionam abrindo o arquivo direto** (`file://`) por causa da política de CORS do navegador. Use um servidor local.
+> O projeto usa **ES6 Modules**, que **não funcionam abrindo o arquivo direto** (`file://`) por causa da política de CORS do navegador. Use um servidor local.
 
 ### Opção 1: `npm run dev` (recomendado)
 
@@ -176,7 +176,7 @@ Os blocos de **cabeçalho, formulário, cards e toast** partem do HyperUI e fora
 
 ### Recursos assistivos
 
-- ⌨**Teclado:** link "Pular para o conteúdo"; anel de foco **grosso** (`focus-visible:ring-4 ring-offset-4`); contorno + halo nos temas HC; `outline` real no Alto Contraste do Windows; foco nunca escondido pelo header fixo (`scroll-padding-top` dinâmico).
+- **Teclado:** link "Pular para o conteúdo"; anel de foco **grosso** (`focus-visible:ring-4 ring-offset-4`); contorno + halo nos temas HC; `outline` real no Alto Contraste do Windows; foco nunca escondido pelo header fixo (`scroll-padding-top` dinâmico).
 - **Leitores de tela:** `<label for>` em todos os campos; dicas e erros em `aria-describedby`; `aria-invalid`; toasts em `aria-live="polite"` ("Medicamento salvo com sucesso") e lembretes em `role="alert"`; horários lidos como "8 horas e 30 minutos"; ícones com `aria-hidden="true"`.
 - **4 temas** que respeitam `prefers-color-scheme` e `prefers-contrast` no primeiro acesso:
 
