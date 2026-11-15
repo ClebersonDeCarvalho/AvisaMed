@@ -191,8 +191,6 @@ Os blocos de **cabeçalho, formulário, cards e toast** partem do HyperUI e fora
 - **Alvos grandes:** botões e campos com no mínimo 48 px de altura.
 - **Segurança:** todo dado digitado passa por escape antes de ser renderizado (anti-XSS).
 
-Requisitos, arquitetura e a tabela de conformidade WCAG 2.1 completa estão em **[documentacao.docx](./documentacao.docx)**.
-
 ---
 
 ## Como testar a acessibilidade
